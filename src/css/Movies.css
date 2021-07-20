@@ -1,0 +1,159 @@
+.form-search{
+    padding: 0.4rem;
+    border-radius: 10px;
+    border: rgb(213, 213, 213) 1px solid;
+}
+
+
+.buscador {
+	border:1px solid #d7d7d7;
+    border-radius: 10px;
+	padding: 4px;
+	height: 22px;
+	width: 270px;
+    margin-top: 1%;
+}
+
+.buscar {
+	border: 0px;
+	width: 240px;
+	position: relative;
+	background: transparent;
+	outline: none;
+	bottom: 4px;
+	padding: 2px;
+}
+
+.image-buscar {
+	width: 20px;
+	border: 0px;
+	position: relative;
+	top:1px;
+}
+
+.container-movies{
+    margin: 2%;
+}
+
+.container-search{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container-filter{
+    margin-top: 1%;
+    margin-left: 0.5%;
+    padding: 0.5% 1.5%;
+    border-left: 1px solid rgb(213, 213, 213);
+    border-right: 1px solid rgb(213, 213, 213);
+    cursor: pointer;
+}
+
+.container-ordenar{
+    margin-top: 1%;
+    padding: 0.5% 1.5%;
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+.container-search > p {
+    margin-top: 1.5%;
+    padding-left: 1%;
+    font-size: 15px;
+    color: rgb(177, 177, 177);
+    text-align: center;
+}
+
+
+.grid-movies{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 2%;
+}
+
+.flex-card-movies > img{
+    width: 100%;
+    height: 100%;
+}
+
+.text-card-movies {
+    font-size: 10px;
+}
+
+.flex-card-movies{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    margin-top: 1rem;
+}
+
+.container-card-text-movies{
+    margin-top: 1rem;
+}
+
+.card-movies{
+    border: solid 2px black;
+    padding: 1rem;
+    border-radius: 18px;
+}
+.container-stars{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container-score{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.container-score > p{
+    margin-top: 3%;
+    margin-right: 3%;
+}
+
+
+.container-ordenar-menu{
+    position: absolute;
+    transform: translateY(50px);
+    margin-left: 28%;
+    padding: 1rem;
+    z-index: 5;
+    background: #EFEFEF;
+    box-shadow: 5px 5px 15px 5px #D1D1D1;
+    border-radius: 18px;
+    width: 13%;
+}
+
+.options-menu-ordenar{
+    padding: 0.5rem;
+}
+
+.options-pointer-ordenar{
+    padding: 0.3rem  0rem;
+    cursor: pointer;
+}
+
+.container-filtrar-menu{
+    position: absolute;
+    transform: translateY(50px);
+    margin-left: 12%;
+    padding: 1rem;
+    z-index: 5;
+    background: #EFEFEF;
+    box-shadow: 5px 5px 15px 5px #D1D1D1;
+    border-radius: 18px;
+    width: 13%;
+}
+
+@media (max-width : 700px) {
+
+    .grid-movies {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-card-movies{
+        display: flex;
+        flex-direction: column;
+    }
+}

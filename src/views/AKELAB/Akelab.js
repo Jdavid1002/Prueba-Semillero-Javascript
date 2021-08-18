@@ -40,26 +40,26 @@ const Akelab = () => {
 
     return (
         <div>
-            <div className="container-arrow" >
-                <div className="dad-arrow"  onClick={() => window.location.replace("/") } >
+            <div className="containerArrow" >
+                <div className="containerArrow__arrowCircle"  onClick={() => window.location.replace("/") } >
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                     </svg>
                 </div>
             </div>
 
-            <div  className="dad-form-akelab" >
+            <div  className="containerFormAkelab" >
                 <form onSubmit={validarNumero} >
                     <input  onChange={(e)=> setnumber(e.target.value) } className="form-control" type="number" placeholder="1" />
-                    <div className="dad-btn" >
-                        <button className="btn-akelab btn-form-akelab" type="submit" > Enviar </button>
+                    <div className="containerFormAkelab__containerButton" >
+                        <button className="btn-akelab btn_form_akelab" type="submit" > Enviar </button>
                     </div>
                 </form>
             </div>
 
-            <div className="grid-numbers" >
+            <div className="gridNumbers" >
                 {arrayNumbersState.map(data => 
-                    <div className="container-number" key={data.id} >
+                    <div className="containerNumber" key={data.id} >
                         <h4> {data.type} </h4>
                     </div> 
                 )}

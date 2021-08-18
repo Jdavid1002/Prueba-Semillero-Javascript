@@ -1,10 +1,10 @@
-.grid-numbers{
+.gridNumbers{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.dad-form{
+.containerForm{
     padding: 5%;
     background: #000428;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
@@ -35,26 +35,26 @@
     font-weight: 700;
 }
 
-.btn-form-fibonacci{
+.btn_form_fibonacci{
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 
-.btn-form-fibonacci:hover {
+.btn_form_fibonacci:hover {
     box-shadow: 0 0 40px 40px #3498db inset;
     color: white;
 }
 
-.dad-btn{
+.containerForm__containerBtn{
     display: flex;
     justify-content: center ;
 }
 
-.container-number{
+.containerNumber{
 	padding: 1rem;
 	box-shadow: 5px 5px 15px 5px #bdbdbd;
 }
 
-.dad-arrow{
+.containerArrow__circle{
     margin: 1rem;
     padding: 0.8rem;
 	box-shadow: 5px 5px 15px 5px #bdbdbd;
@@ -62,7 +62,7 @@
     cursor: pointer;
 }
 
-.container-arrow{
+.containerArrow{
     display: flex;
     justify-content: flex-start;
 }

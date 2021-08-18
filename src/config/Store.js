@@ -6,11 +6,12 @@ const initialState={
     n : 0,
     results : [],
     busqueda : {},
-    filtros : ""
+    filtros : "",
+    resultsFilter : []
 }
 
 const reducer = (state = initialState , action) => {
-    const { type ,  movies , movie , filtros} = action
+    const { type ,  movies , movie , filtros, resultsFilter} = action
     if(type === "@saveMovies"){
         return movies
     }
@@ -24,8 +25,16 @@ const reducer = (state = initialState , action) => {
     if(type === "@cargarFiltros"){
         return {
             ...state,
-            filtros : filtros,
+            filtros ,
             results : movies
+        }
+    }
+
+    if(type === "@filtrarMovies"){
+        return {
+            ...state,
+            resultsFilter,
+            filtros
         }
     }
 

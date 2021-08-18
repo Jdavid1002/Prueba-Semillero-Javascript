@@ -1,11 +1,4 @@
-.form-search{
-    padding: 0.4rem;
-    border-radius: 10px;
-    border: rgb(213, 213, 213) 1px solid;
-}
-
-
-.buscador {
+.nav__buscador {
 	border:1px solid #d7d7d7;
     border-radius: 10px;
 	padding: 4px;
@@ -14,7 +7,7 @@
     margin-top: 1%;
 }
 
-.buscar {
+.nav__buscador__input {
 	border: 0px;
 	width: 240px;
 	position: relative;
@@ -24,7 +17,7 @@
 	padding: 2px;
 }
 
-.image-buscar {
+.nav__buscador__img{
 	width: 20px;
 	border: 0px;
 	position: relative;
@@ -35,12 +28,12 @@
     margin: 2%;
 }
 
-.container-search{
+.nav{
     display: flex;
     justify-content: flex-start;
 }
 
-.container-filter{
+.nav__filter{
     margin-top: 1%;
     margin-left: 0.5%;
     padding: 0.5% 1.5%;
@@ -49,14 +42,14 @@
     cursor: pointer;
 }
 
-.container-ordenar{
+.nav__sort{
     margin-top: 1%;
     padding: 0.5% 1.5%;
     cursor: pointer;
     transform: rotate(90deg);
 }
 
-.container-search > p {
+.nav__text {
     margin-top: 1.5%;
     padding-left: 1%;
     font-size: 15px;
@@ -65,55 +58,54 @@
 }
 
 
-.grid-movies{
+.gridMovies{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 2%;
 }
 
-.flex-card-movies > img{
+
+.cardMovies{
+    border: solid 2px black;
+    padding: 1rem;
+    border-radius: 18px;
+}
+
+.cardMovies__containerFlex > img{
     width: 100%;
     height: 100%;
 }
 
-.text-card-movies {
+.cardMovies__containerFlex__text {
     font-size: 10px;
 }
 
-.flex-card-movies{
+.cardMovies__containerFlex{
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 20px;
     margin-top: 1rem;
 }
 
-.container-card-text-movies{
+.cardMovies__containerFlex__features{
     margin-top: 1rem;
 }
 
-.card-movies{
-    border: solid 2px black;
-    padding: 1rem;
-    border-radius: 18px;
-}
-.container-stars{
+
+.cardMovies__containerFlex__features__flexStart{
     display: flex;
     justify-content: flex-start;
 }
 
-.container-score{
-    display: flex;
-    justify-content: flex-start;
-}
-
-.container-score > p{
+.cardMovies__containerFlex__text--features{
     margin-top: 3%;
     margin-right: 3%;
+    font-size: 10px;
 }
 
 
-.container-ordenar-menu{
+.nav__sortMenu{
     position: absolute;
     transform: translateY(50px);
     margin-left: 28%;
@@ -125,16 +117,16 @@
     width: 13%;
 }
 
-.options-menu-ordenar{
+.nav__sortMenu__container{
     padding: 0.5rem;
 }
 
-.options-pointer-ordenar{
+.nav__sortMenu__container__options{
     padding: 0.3rem  0rem;
     cursor: pointer;
 }
 
-.container-filtrar-menu{
+.nav__filterMenu{
     position: absolute;
     transform: translateY(50px);
     margin-left: 12%;
@@ -146,13 +138,15 @@
     width: 13%;
 }
 
+
+
 @media (max-width : 700px) {
 
-    .grid-movies {
+    .gridMovies {
         display: flex;
         flex-direction: column;
     }
-    .flex-card-movies{
+    .cardMovies__containerFlex{
         display: flex;
         flex-direction: column;
     }

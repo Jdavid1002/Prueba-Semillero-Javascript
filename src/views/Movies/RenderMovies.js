@@ -4,6 +4,7 @@ import Movie from './Movie';
 
 const RenderMovies = () => {
     const results = useSelector(state => state.results)
+    const resultsFilter = useSelector(state => state.resultsFilter)
     const genres = useSelector(state => state.genres)
     const busqueda = useSelector(state => state.busqueda)
     useSelector(state => state.filtros)
@@ -40,15 +41,30 @@ const RenderMovies = () => {
 
     return (
         <div>
-            { JSON.stringify(busqueda) !=='{}' ?
-                <div className="grid-movies" >
-                    <Movie data={busqueda} cargarEstrellasNegativas={cargarEstrellasNegativas} cargarEstrellas={cargarEstrellas} cargarGeneros={cargarGeneros} /> 
-                </div>
-            :
-                <div className="grid-movies" >
-                    { results.map(data => <Movie key={data.id} data={data} cargarEstrellasNegativas={cargarEstrellasNegativas} cargarEstrellas={cargarEstrellas} cargarGeneros={cargarGeneros} /> )}
-                </div>
-            }
+            <div>
+                { resultsFilter.length > 0?
+                    <div className="gridMovies" >
+                        {resultsFilter.map(data => 
+                            <Movie data={data} key={data.id} cargarEstrellasNegativas={cargarEstrellasNegativas} cargarEstrellas={cargarEstrellas} cargarGeneros={cargarGeneros} />     
+                        )}
+                    </div>
+                : 
+                    <div>
+                        { busqueda.length > 0 ?
+                            <div className="gridMovies" >
+                                {busqueda.map(data => 
+                                    <Movie data={data} key={data.id} cargarEstrellasNegativas={cargarEstrellasNegativas} cargarEstrellas={cargarEstrellas} cargarGeneros={cargarGeneros} />     
+                                )}
+                            </div>
+                        :
+                            <div className="gridMovies" >
+                                { results.map(data => <Movie key={data.id} data={data} cargarEstrellasNegativas={cargarEstrellasNegativas} cargarEstrellas={cargarEstrellas} cargarGeneros={cargarGeneros} /> )}
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+
 
         </div>
     );

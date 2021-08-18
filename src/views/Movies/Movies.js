@@ -23,7 +23,8 @@ const Movies = () => {
             images_url : res.images_url,
             n : res.n,
             results : res.results,
-            busqueda : {}
+            busqueda : {},
+            resultsFilter : []
         }
         dispatch({type : "@saveMovies" , movies : initialState})
     }

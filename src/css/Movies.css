@@ -24,7 +24,7 @@
 	top:1px;
 }
 
-.container-movies{
+.containerMovies{
     margin: 2%;
 }
 
@@ -129,7 +129,7 @@
 .nav__filterMenu{
     position: absolute;
     transform: translateY(50px);
-    margin-left: 12%;
+    margin-left: -20%;
     padding: 1rem;
     z-index: 5;
     background: #EFEFEF;

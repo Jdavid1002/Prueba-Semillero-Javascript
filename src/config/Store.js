@@ -5,20 +5,22 @@ const initialState={
     images_url : "",
     n : 0,
     results : [],
-    busqueda : {},
+    busqueda : [],
     filtros : "",
     resultsFilter : []
 }
 
 const reducer = (state = initialState , action) => {
-    const { type ,  movies , movie , filtros, resultsFilter} = action
+    const { type ,  movies , filtros, resultsFilter} = action
+
     if(type === "@saveMovies"){
         return movies
     }
+    
     if(type === "@cargarBusqueda"){
         return {
             ...state,
-            busqueda : movie
+            busqueda : movies
         }
     }
 

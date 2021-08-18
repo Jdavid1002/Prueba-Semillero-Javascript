@@ -1,13 +1,14 @@
 import React,{useEffect} from 'react'
 import axios from 'axios'
 import Nav from './Nav'
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import RenderMovies from './RenderMovies'
 import '../../css/Movies.css'
 
 
 const Movies = () => {
     const dispatch = useDispatch()
+    const state = useSelector(state => state)
 
     const CargarPeliculas = async () => {
         const consulta = await axios({
@@ -19,12 +20,11 @@ const Movies = () => {
         })
         const res = consulta.data
         const initialState= {
+            ...state,
             genres : res.genres,
             images_url : res.images_url,
             n : res.n,
-            results : res.results,
-            busqueda : {},
-            resultsFilter : []
+            results : res.results
         }
         dispatch({type : "@saveMovies" , movies : initialState})
     }
@@ -35,7 +35,7 @@ const Movies = () => {
     }, [])
 
     return (
-        <div className="container-movies" >
+        <div className="containerMovies" >
             <Nav />
             <RenderMovies />
         </div>

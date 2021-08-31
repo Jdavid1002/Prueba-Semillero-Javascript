@@ -10,49 +10,28 @@ const NavFilter = () => {
 
 
     const filtrarGenero = () => {
+    
         const arraySeleccionedGenres = []
 
         for (let i = 0; i < genres.length; i++) {
-            const element = genres[i];
-            const validacion = document.getElementById(element.id).checked
-            const elemento = document.getElementById(element.id)
-            const objeto = {
-                estado : validacion,
+            const elemento = document.getElementById(genres[i].id)
+            arraySeleccionedGenres.push({
+                estado : elemento.checked,
                 elemento,
-                id : element.id
-            } 
-            arraySeleccionedGenres.push(objeto)
+                id : genres[i].id
+            })
         }
 
-        const newGenres = arraySeleccionedGenres.filter(data => data.estado === true)
-        const idGenres = newGenres.map(data => data.id)
+        const idGenres = arraySeleccionedGenres.filter(data => data.estado === true).map(data => data.id)
+        
         const newArray = []
-
-
-        movies.forEach(element => {
-            idGenres.forEach(id => {
-                element.genre_ids.forEach(g => {
-                    if(g === id){
-                        newArray.push(element)
-                    }
-                })
-            })
-        });
+        movies.forEach(element => idGenres.forEach(id => element.genre_ids.forEach( g => g === id ? newArray.push(element) :null )))
 
         const ids = newArray.map(data => data.id)
+        const unicos = ids.filter((valor, indice) => ids.indexOf(valor) === indice)
 
-        const unicos = ids.filter((valor, indice) => {
-                return ids.indexOf(valor) === indice;
-            }
-        )
-
-        const newMovies = []
-        
-        unicos.forEach(element => {
-            const newMovie = movies.find(data => data.id === element)
-            newMovies.push(newMovie)
-        })
-
+        const newMovies = []        
+        unicos.forEach(element => newMovies.push(movies.find(data => data.id === element)))
 
         dispatch({type : "@filtrarMovies" , resultsFilter: newMovies, filtros : "genres"})
     }
@@ -60,11 +39,11 @@ const NavFilter = () => {
 
     return (
         <div>
-            <div className="nav__filterMenu" >
+            <div className="nav__filterMenu">
                 <h5> Genero </h5>
                 {genres.map(g => 
                     <div key={g.id} >
-                        <label> <input type="checkbox" id={g.id} value={g.name} onClick={()=> filtrarGenero(g)} /> {g.name} </label>
+                        <label> <input type="checkbox" id={g.id} value={g.name} onClick={filtrarGenero} /> {g.name} </label>
                     </div>
                 )}
             </div>

@@ -14,10 +14,10 @@ const Movie = ({data , cargarEstrellas , cargarEstrellasNegativas , cargarGenero
 
                     <div className="cardMovies__containerFlex__features" >
 
-                        <p className="cardMovies__containerFlex__text " > <span> Titulo: </span> {data.title} </p>
+                        <p className="cardMovies__containerFlex__text" > <span> Titulo: </span> {data.title} </p>
 
                         <div className="cardMovies__containerFlex__features__flexStart" >
-                            <p className="cardMovies__containerFlex__text--features " > <span> Calificacion: </span> {data.vote_average} </p>
+                            <p className="cardMovies__containerFlex__text--features" > <span> Calificacion: </span> {data.vote_average} </p>
 
                             <div className="cardMovies__containerFlex__features__flexStart" >
                                 {cargarEstrellas(data).map(dato => <Estrella   key={Math.random()} data={dato} /> )}
@@ -25,7 +25,8 @@ const Movie = ({data , cargarEstrellas , cargarEstrellasNegativas , cargarGenero
                             </div>
                         </div>
 
-                        <p className="cardMovies__containerFlex__text " > <span> Genero: </span>  {cargarGeneros(data).map(data =>  `${data} - ` ) } </p>
+                        <p className="cardMovies__containerFlex__text " > <span> Genero: </span>  
+                        {cargarGeneros(data).map(data =>  `${data} - ` ) } </p>
                         <p className="cardMovies__containerFlex__text " > <span> Fecha de Realización:  </span> {data.release_date}  </p>
                     </div>
 

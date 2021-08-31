@@ -3,37 +3,71 @@ import { useSelector , useDispatch} from 'react-redux'
 
 const NavSort = () => {
     
-    const movies = useSelector(state => state.results)
+
+    const movies = useSelector(state => state.resultsFilter)
+    const results = useSelector(state => state.results)
+
+
     const dispatch = useDispatch()
 
 
     const Ordenar = (number) => {
-        if(number === 1){
-            movies.sort(( a, b )=> 
-                parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4))
-            );
-            dispatch({type : "@cargarFiltros" , filtros : "AntiguasNuevas" , movies : movies})
-
-        }else if(number === 2){
-            movies.sort(( a, b )=> 
-                parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4))
-            );
-            dispatch({type : "@cargarFiltros" , filtros : "NuevasAntiguas" , movies : movies})
-
-        }else if(number === 3){
-            movies.sort((a, b) => 
-                parseFloat(a.vote_average) - parseFloat(b.vote_average)
-            )
-            dispatch({type : "@cargarFiltros" , filtros : "0-10" , movies : movies})
-
-        }else if(number === 4){
-            movies.sort((a, b) => 
-                parseFloat(b.vote_average) - parseFloat(a.vote_average)
-            )
-            dispatch({type : "@cargarFiltros" , filtros : "10-0" , movies : movies})
-        }else {
-            return number
+        if(movies.length > 0){
+            if(number === 1){
+                movies.sort(( a, b )=> 
+                    parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4))
+                );
+                dispatch({type : "@cargarFiltros" , filtros : "AntiguasNuevas" , movies })
+    
+            }else if(number === 2){
+                movies.sort(( a, b )=> 
+                    parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4))
+                );
+                dispatch({type : "@cargarFiltros" , filtros : "NuevasAntiguas" , movies })
+    
+            }else if(number === 3){
+                movies.sort((a, b) => 
+                    parseFloat(a.vote_average) - parseFloat(b.vote_average)
+                )
+                dispatch({type : "@cargarFiltros" , filtros : "0-10" , movies })
+    
+            }else if(number === 4){
+                movies.sort((a, b) => 
+                    parseFloat(b.vote_average) - parseFloat(a.vote_average)
+                )
+                dispatch({type : "@cargarFiltros" , filtros : "10-0" , movies })
+            }else {
+                return number
+            }
+        }else{
+            if(number === 1){
+                results.sort(( a, b )=> 
+                    parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4))
+                );
+                dispatch({type : "@cargarFiltros" , filtros : "AntiguasNuevas" , movies :  results })
+    
+            }else if(number === 2){
+                results.sort(( a, b )=> 
+                    parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4))
+                );
+                dispatch({type : "@cargarFiltros" , filtros : "NuevasAntiguas" , movies :  results })
+    
+            }else if(number === 3){
+                results.sort((a, b) => 
+                    parseFloat(a.vote_average) - parseFloat(b.vote_average)
+                )
+                dispatch({type : "@cargarFiltros" , filtros : "0-10" , movies :  results})
+    
+            }else if(number === 4){
+                results.sort((a, b) => 
+                    parseFloat(b.vote_average) - parseFloat(a.vote_average)
+                )
+                dispatch({type : "@cargarFiltros" , filtros : "10-0" , movies :  results })
+            }else {
+                return number
+            }
         }
+
     }
 
 

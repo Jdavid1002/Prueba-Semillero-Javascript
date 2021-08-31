@@ -21,6 +21,7 @@ const Nav = () => {
         e.preventDefault()
         if(Busqueda !== ""){
             const res = movies.filter(data => data.title.substr(0,Busqueda.length).toUpperCase() === Busqueda.toUpperCase())
+
             if(res.length >0){
                 dispatch({type : "@cargarBusqueda" , movies : res})
             }else{
@@ -31,11 +32,7 @@ const Nav = () => {
                 })
             }
         }else{
-            Swal.fire({
-                icon : "warning",
-                title : "Campos Vacios",
-                text : "Recuerda llenar el campo correctamente."
-            })
+            dispatch({type : "@cargarBusqueda" , movies : []})
         }
     }
 

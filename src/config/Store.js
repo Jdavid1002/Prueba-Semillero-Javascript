@@ -28,7 +28,7 @@ const reducer = (state = initialState , action) => {
         return {
             ...state,
             filtros ,
-            results : movies
+            resultsFilter : movies
         }
     }
 

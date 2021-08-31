@@ -24,7 +24,7 @@ const corsOptions ={
 
 const PORT = 3001
 app.listen(PORT , ()=>{
-    console.log(`Servidor corriendo en puerto ${PORT}` )
+    console.log(`Servidor corriendo en puerto ${PORT}`)
 })
 
 
@@ -34,5 +34,3 @@ app.post('/api/Movies', cors(corsOptions) , (req, res)=>{
         res.json(Movies)
     }
 })
-
-

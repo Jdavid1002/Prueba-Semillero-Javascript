@@ -18,19 +18,22 @@ const Movies = () => {
                 akelab : "123456789"
             }
         })
-        const res = consulta.data
-        const initialState= {
+        const res = await consulta.data
+        const initialState = {
             ...state,
             genres : res.genres,
             images_url : res.images_url,
             n : res.n,
             results : res.results
         }
-        dispatch({type : "@saveMovies" , movies : initialState})
+        return {type : "@saveMovies" , movies : initialState}
     }
 
     useEffect(() => {
-        CargarPeliculas()
+        const res = CargarPeliculas()
+        res.then(data => {
+            dispatch(data)
+        })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

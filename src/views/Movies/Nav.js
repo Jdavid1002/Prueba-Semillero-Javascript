@@ -37,6 +37,23 @@ const Nav = () => {
     }
 
 
+    const busquedaDePeliculaChange = (texto) => {
+        setBusqueda(texto)
+        if(texto!== ""){
+            const res = movies.filter(data => data.title.substr(0,texto.length).toUpperCase() === texto.toUpperCase())
+            if(res.length >0){
+                dispatch({type : "@cargarBusqueda" , movies : res})
+            }else{
+                dispatch({type : "@cargarBusqueda" , movies : []})
+                Swal.fire({
+                    icon : "error",
+                    title :"No se encontró ningún resultado"
+                })
+            }
+        }else{
+            dispatch({type : "@cargarBusqueda" , movies : []})
+        }
+    }
 
 
 
@@ -46,7 +63,7 @@ const Nav = () => {
             <div className="nav" >
                 <div className="nav__buscador">
                     <form onSubmit={busquedaDePelicula} >
-                        <input type="text" onChange={(e)=> setBusqueda(e.target.value) } className="nav__buscador__input" />
+                        <input type="text" onChange={(e)=> busquedaDePeliculaChange(e.target.value) } className="nav__buscador__input" />
                         <input type="image" alt="search" src={search} className="nav__buscador__img" />
                     </form>
                 </div>

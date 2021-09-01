@@ -41,27 +41,16 @@ const NavSort = () => {
             }
         }else{
             if(number === 1){
-                results.sort(( a, b )=> 
-                    parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4))
-                );
+                results.sort(( a, b )=> parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4)));
                 dispatch({type : "@cargarFiltros" , filtros : "AntiguasNuevas" , movies :  results })
-    
             }else if(number === 2){
-                results.sort(( a, b )=> 
-                    parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4))
-                );
+                results.sort(( a, b )=>  parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4)));
                 dispatch({type : "@cargarFiltros" , filtros : "NuevasAntiguas" , movies :  results })
-    
             }else if(number === 3){
-                results.sort((a, b) => 
-                    parseFloat(a.vote_average) - parseFloat(b.vote_average)
-                )
+                results.sort((a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average))
                 dispatch({type : "@cargarFiltros" , filtros : "0-10" , movies :  results})
-    
             }else if(number === 4){
-                results.sort((a, b) => 
-                    parseFloat(b.vote_average) - parseFloat(a.vote_average)
-                )
+                results.sort((a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average))
                 dispatch({type : "@cargarFiltros" , filtros : "10-0" , movies :  results })
             }else {
                 return number
@@ -69,7 +58,6 @@ const NavSort = () => {
         }
 
     }
-
 
 
     return (

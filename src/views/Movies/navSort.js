@@ -10,31 +10,22 @@ const NavSort = () => {
 
     const dispatch = useDispatch()
 
-
     const Ordenar = (number) => {
         if(movies.length > 0){
             if(number === 1){
-                movies.sort(( a, b )=> 
-                    parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4))
-                );
+                movies.sort(( a, b )=> parseInt(a.release_date.substr(0,4)) - parseInt(b.release_date.substr(0,4)));
                 dispatch({type : "@cargarFiltros" , filtros : "AntiguasNuevas" , movies })
     
             }else if(number === 2){
-                movies.sort(( a, b )=> 
-                    parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4))
-                );
+                movies.sort(( a, b )=> parseInt(b.release_date.substr(0,4)) - parseInt(a.release_date.substr(0,4)));
                 dispatch({type : "@cargarFiltros" , filtros : "NuevasAntiguas" , movies })
     
             }else if(number === 3){
-                movies.sort((a, b) => 
-                    parseFloat(a.vote_average) - parseFloat(b.vote_average)
-                )
+                movies.sort((a, b) => parseFloat(a.vote_average) - parseFloat(b.vote_average))
                 dispatch({type : "@cargarFiltros" , filtros : "0-10" , movies })
     
             }else if(number === 4){
-                movies.sort((a, b) => 
-                    parseFloat(b.vote_average) - parseFloat(a.vote_average)
-                )
+                movies.sort((a, b) => parseFloat(b.vote_average) - parseFloat(a.vote_average))
                 dispatch({type : "@cargarFiltros" , filtros : "10-0" , movies })
             }else {
                 return number

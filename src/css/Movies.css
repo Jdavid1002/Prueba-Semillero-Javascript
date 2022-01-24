@@ -34,24 +34,43 @@
 }
 
 .nav__filter{
-    margin-top: 1%;
-    margin-left: 0.5%;
-    padding: 0.5% 1.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-left: 1px solid rgb(213, 213, 213);
     border-right: 1px solid rgb(213, 213, 213);
+    cursor: pointer;
+    padding: 0px 10px;
+    margin: 12px 0px 0px 10px;
+}
+
+.nav__filter:hover{
+    background: rgb(224, 224, 224);
+}
+
+.nav__sortContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:0px 8px;
+    margin: 12px 0px 0px 0px;
+}
+
+.nav__sortContainer:hover{
+    background: rgb(224, 224, 224);
     cursor: pointer;
 }
 
 .nav__sort{
-    margin-top: 1%;
-    padding: 0.5% 1.5%;
-    cursor: pointer;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: rotate(90deg);
 }
 
 .nav__text {
-    margin-top: 1.5%;
-    padding-left: 1%;
+    padding: 10px;
     font-size: 15px;
     color: rgb(177, 177, 177);
     text-align: center;
@@ -129,7 +148,7 @@
 .nav__filterMenu{
     position: absolute;
     transform: translateY(50px);
-    margin-left: -20%;
+    margin-left: 12%;
     padding: 1rem;
     z-index: 5;
     background: #EFEFEF;

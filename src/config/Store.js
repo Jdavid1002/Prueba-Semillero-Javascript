@@ -1,47 +1,35 @@
-import { createStore } from "redux"
+import { createStore } from "redux";
 
-const initialState={
-    genres : [],
-    images_url : "",
-    n : 0,
-    results : [],
-    busqueda : [],
-    filtros : "",
-    resultsFilter : []
-}
+const INITIALSTATE = {
+  genres : [],
+  images_url : "",
+  n : 0,
+  results : [],
+  checkboxList : [],
+  order : "",
+  search : ""
+};
 
-const reducer = (state = initialState , action) => {
-    const { type ,  movies , filtros, resultsFilter} = action
+const reducer = (state = INITIALSTATE, action) => {
+  const { type, payload } = action;
 
-    if(type === "@saveMovies"){
-        return movies
-    }
-    
-    if(type === "@cargarBusqueda"){
-        return {
-            ...state,
-            busqueda : movies
-        }
-    }
-
-    if(type === "@cargarFiltros"){
-        return {
-            ...state,
-            filtros ,
-            resultsFilter : movies
-        }
-    }
-
-    if(type === "@filtrarMovies"){
-        return {
-            ...state,
-            resultsFilter,
-            filtros
-        }
-    }
-
-    return state
-}
-
+  switch (type) {
+    case "GET__MOVIES":
+      return {
+        genres : payload.genres,
+        images_url : payload.images_url,
+        n : payload.n,
+        results : payload.results,
+      };
+    case "UPDATE__CHECKBOX__LIST":
+      return { ...state, checkboxList: payload };
+    case "UPDATE__ORDER":
+      return { ...state, order: payload };
+    case "UPDATE__SEARCH":
+      return { ...state, search: payload };
+    default:
+      return state;
+  };
+};
 
 export default createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())

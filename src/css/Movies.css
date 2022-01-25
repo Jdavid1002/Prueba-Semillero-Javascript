@@ -141,8 +141,12 @@
 }
 
 .nav__sortMenu__container__options{
-    padding: 0.3rem  0rem;
+    padding: 0.3rem;
     cursor: pointer;
+}
+
+.nav__sortMenu__container__options:hover{
+    background: #D1D1D1;
 }
 
 .nav__filterMenu{
